@@ -16,7 +16,7 @@ export class ReferenceWithTimezone {
             this.instant = input;
         } else {
             this.instant = input.instant ?? new Date();
-            this.timezoneOffset = toTimezoneOffset(input.timezone);
+            this.timezoneOffset = toTimezoneOffset(input.timezone, this.instant);
         }
     }
 }
@@ -124,6 +124,7 @@ export class ParsingComponents implements ParsedComponents {
         if (date.getMonth() !== this.get("month") - 1) return false;
         if (date.getDate() !== this.get("day")) return false;
         if (this.get("hour") != null && date.getHours() != this.get("hour")) return false;
+        // noinspection RedundantIfStatementJS
         if (this.get("minute") != null && date.getMinutes() != this.get("minute")) return false;
 
         return true;
