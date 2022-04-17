@@ -2,8 +2,9 @@ import { DebugHandler, DebugConsume } from "./debugging";
 import * as en from "./locales/en";
 import { Chrono, Parser, Refiner } from "./chrono";
 import { TimezoneAbbrMap } from "./timezone";
+import type { ParsingResult } from "./results";
 
-export { en, Chrono, Parser, Refiner, TimezoneAbbrMap };
+export { en, Chrono, Parser, Refiner, TimezoneAbbrMap, ParsingResult };
 
 export interface ParsingOption {
     /**
